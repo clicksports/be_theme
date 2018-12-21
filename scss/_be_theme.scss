@@ -117,8 +117,8 @@ body {
   float: none !important;
   text-align: center;
   margin: auto;
-  margin-top: 0;
   line-height: 1;
+  margin-top: 8px;
 
   transition: all 300ms;
 }
@@ -152,7 +152,6 @@ body {
 .rex-nav-top .navbar-header {
   width: calc(250px);
   text-align: center;
-  background: $color-b;
   margin-left: -15px;
 
   transition: all 300ms;
@@ -374,6 +373,7 @@ body[data-rex-nav-hide="true"] .rex-nav-top .container-fluid .navbar-brand {
   background: transparent;
   width: 30px;
   height: 30px;
+  margin-top: 3px;
 
   padding: 0px;
   padding-left: 0 !important;
@@ -451,8 +451,8 @@ body[id^="rex-page-linkmap"] .navbar-header {
 }
 
 /* Slice Editor */
-.rex-slice-add .rex-page-section,
-.rex-slice-edit .rex-page-section {
+.rex-slice-add > form > .rex-page-section,
+.rex-slice-edit > form > .rex-page-section {
   position: fixed;
   top: 0;
   left: 0;
@@ -461,14 +461,14 @@ body[id^="rex-page-linkmap"] .navbar-header {
   z-index: 10;
 }
 
-.rex-slice-edit .rex-page-section .panel-edit,
-.rex-slice-add .rex-page-section .panel-add {
+.rex-slice-edit > form > .rex-page-section .panel-edit,
+.rex-slice-add > form > .rex-page-section .panel-add {
   margin-bottom: 0;
   height: 100%;
 }
 
-.rex-slice-edit .rex-page-section .panel-edit .panel-body,
-.rex-slice-add .rex-page-section .panel-add .panel-body {
+.rex-slice-edit > form > .rex-page-section .panel-edit .panel-body,
+.rex-slice-add > form > .rex-page-section .panel-add .panel-body {
   height: calc(100vh - (41px + 55px));
   overflow: scroll;
 }
@@ -610,6 +610,11 @@ body[id^="rex-page-linkmap"] .navbar-header {
 /* Page Header */
 .rex-page-header h1 {
   margin-top: 20px;
+}
+
+/* Footer */
+.rex-global-footer  {
+  position: relative;
 }
 
 /* Alert */
@@ -815,7 +820,6 @@ body[data-rex-nav-hide="true"] #cs-header-search > input {
   .rex-nav-top .navbar-header {
     width: auto;
     text-align: left;
-    background: $color-b;
     margin-left: 0;
     margin-right: 0;
     padding: 0;
