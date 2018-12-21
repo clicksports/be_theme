@@ -13,7 +13,7 @@ cd redaxo/src/addons/be_style/plugins
 git clone https://github.com/clicksports/be_theme.git
 ```
 
-Falls notwendig, das Plugin noch auf den Server hochladen und das Plugin `be_theme` installieren und anschließend das Plugin `redaxo` deaktivieren. 
+Falls notwendig, das Plugin noch auf den Server hochladen und das Plugin `be_theme` installieren. 
 
 ## Anpassungen
 
