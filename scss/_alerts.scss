@@ -1,0 +1,26 @@
+@import 'variables';
+
+.alert {
+    a {
+        text-decoration: underline;
+        &:hover {
+            color: $color-a-light;
+        }
+    }
+}
+.alert-danger a {
+    color: $alert-danger-text;
+}
+.alert-info a {
+    color: $alert-info-text;
+}
+.alert-success {
+    background-color: $alert-success-bg !important;
+    border-color: $alert-success-bg !important;
+}
+.alert-success a {
+    color: $alert-success-text;
+}
+.alert-warning a {
+    color: $alert-warning-text;
+}

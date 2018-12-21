@@ -1,0 +1,116 @@
+.btn-default:hover {
+    background-color: #dbdee4;
+}
+.btn-abort,
+.btn-back,
+.btn-clang,
+.btn-move,
+.btn-popup,
+.btn-reset,
+.btn-search {
+    &:hover {
+        @extend .btn-default:hover;
+    }
+}
+
+
+.btn-group > .btn.active,
+.btn-group-vertical > .btn.active {
+    z-index: 3;
+}
+
+.btn-xs,
+.btn-group-xs > .btn {
+    padding-top: $padding-xs-vertical;
+    padding-bottom: $padding-xs-vertical;
+    line-height: $line-height-xs;
+    > .rex-icon {
+        font-size: $font-size-base;
+    }
+}
+
+.rex-nav-language .btn {
+    padding-top: $breadcrumb-padding-vertical;
+    padding-bottom: $breadcrumb-padding-vertical;
+    /*
+    .input-group-btn & {
+        padding-top: $padding-base-vertical;
+        padding-bottom: $padding-base-vertical;
+    }
+    */
+}
+
+.btn-primary:hover,
+.btn-apply:hover,
+.btn-save:hover,
+.btn-select:hover,
+.btn-send:hover,
+.btn-setup:hover,
+.btn-update:hover {
+    background-color: $color-a-darker;
+    border-color: $color-a-darker;
+    color: #fff;
+}
+
+.btn-clang {
+    $normal: (color: $color-b, background: #fff, border: $color-a-light);
+    $hover: (color: $color-b, background: lighten($color-a-light, 5%), border: $color-a-light);
+    $active: (color: #fff, background: $color-b, border: $color-b);
+    $activeHover: (color: #fff, background: darken($color-b, 10%), border: darken($color-b, 10%));
+    @include rex-button-variant($normal, $hover, $active, $activeHover);
+    position: relative;
+
+    &:active,
+    &.active {
+        @include box-shadow(none);
+    }
+}
+.btn-edit {
+    @include button-variant(#fff, $color-d, $color-d);
+
+    .btn-group > &:hover {
+        z-index: 0;
+    }
+
+    .panel-edit & {
+        @include button-variant($color-d, #fff, #fff);
+    }
+}
+
+
+.btn-save,
+.btn-apply {
+    @include button-variant(#fff, $color-d, $color-d);
+}
+
+@media (min-width: $screen-md-min) {
+    .rex-table-action .btn-save {
+        float: right;
+    }
+}
+
+.btn-safemode-activate {
+    $normal: (color: darken(#a86500, 20%), background: #f90, border: darken(#f90, 3%));
+    $hover: (color: darken(#a86500, 20%), background: darken(#f90, 3%), border: darken(#f90, 10%));
+    $active: (color: darken(#a86500, 20%), background: darken(#f90, 3%), border: darken(#f90, 10%));
+    $activeHover: (color: darken(#a86500, 20%), background: darken(#f90, 3%), border: darken(#f90, 10%));
+    @include rex-button-variant($normal, $hover, $active, $activeHover);
+    position: relative;
+}
+
+.btn-toolbar > .btn-abort {
+    float: right;
+}
+
+.rex-truncate-dropdown {
+    .btn.dropdown-toggle {
+        max-width: 200px;
+        > .filter-option {
+            text-overflow: ellipsis;
+        }
+    }
+    .input-group > .input-group-addon,
+    .input-group > .input-group-btn {
+        width: auto;
+    }
+}

@@ -1,0 +1,236 @@
+@include input-size('.input-xs', $input-height-xs, $padding-xs-vertical, $padding-xs-horizontal, $font-size-xs, $line-height-xs, $input-border-radius-small);
+.form-group-xs {
+    .form-control {
+        height: $input-height-xs;
+        padding: $padding-xs-vertical $padding-xs-horizontal;
+        font-size: $font-size-xs;
+        line-height: $line-height-xs;
+        border-radius: $input-border-radius-small;
+    }
+    select.form-control {
+        height: $input-height-xs;
+        line-height: $input-height-xs;
+    }
+    textarea.form-control,
+    select[multiple].form-control {
+        height: auto;
+    }
+    .form-control-static {
+        height: $input-height-xs;
+        min-height: ($line-height-computed + $font-size-xs);
+        padding: ($padding-xs-vertical + 1) $padding-xs-horizontal;
+        font-size: $font-size-xs;
+        line-height: $line-height-xs;
+    }
+}
+.input-group-xs > .form-control,
+.input-group-xs > .input-group-addon,
+.input-group-xs > .input-group-btn > .btn {
+    @extend .input-xs;
+}
+
+.panel > form {
+    margin-bottom: 0;
+}
+.form-control:focus {
+    background-color: #fff;
+}
+// rex_select liefert immer size=1 und bs3 setzt height auf auto
+// hier werden auch alle selects ohne size Attribute auf einheitliche Höhe gesetzt
+select.form-control {
+    height: auto;
+}
+legend {
+    padding-bottom: 3px;
+    font-size: $font-size-large;
+    font-weight: 700;
+
+    .rex-slice-input & {
+        font-size: $font-size-base;
+    }
+}
+// Text input groups
+// -------------------------
+.input-group-addon {
+    border-radius: $btn-border-radius-base;
+
+    // Sizing
+    &.input-sm {
+        border-radius: $btn-border-radius-small;
+    }
+    &.input-lg {
+        border-radius: $border-radius-large;
+    }
+}
+.rex-form-group:not(.rex-form-group-vertical) {
+
+    //@include clearfix();
+
+
+    @media (min-width: $grid-float-breakpoint) {
+
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+            // IE10 + IE11 Bug
+            // Mediapool form-group to wide in <tfoot> > setAllCheckBoxes
+            .table & {
+                table-layout: auto;
+            }
+        }
+
+        > dt,
+        > dd {
+            display: table-cell;
+            vertical-align: top;
+        }
+        > dt {
+            width: floor($grid-gutter-width * 6);
+            padding-top: ($padding-base-vertical + 1);
+            padding-right: floor($grid-gutter-width / 2);
+        }
+        > dd {
+            .checkbox,
+            .radio,
+            select.form-control,
+            input[type="file"] {
+                margin-top: ($padding-base-vertical + 1);
+                margin-bottom: ($padding-base-vertical + 1);
+            }
+            .input-group {
+                .checkbox,
+                .radio,
+                select.form-control,
+                input[type="file"] {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        textarea:not([rows]) {
+            min-height: 25em;
+        }
+    }
+    @media (min-width: $screen-lg-min) {
+        > dt {
+            width: floor($grid-gutter-width * 7);
+            padding-right: $grid-gutter-width;
+        }
+
+        textarea:not([rows]) {
+            min-height: 35em;
+        }
+    }
+    @media (min-width: 1400px) {
+        > dt {
+            width: floor($grid-gutter-width * 10);
+        }
+    }
+}
+.rex-form-group:not(.rex-form-group-vertical) > dd {
+
+    &:first-child {
+        @media (min-width: $grid-float-breakpoint) {
+            padding-left: floor($grid-gutter-width * 6);
+        }
+        @media (min-width: $screen-lg-min) {
+            padding-left: floor($grid-gutter-width * 7);
+        }
+        @media (min-width: $screen-xl-min) {
+            padding-left: floor($grid-gutter-width * 10);
+        }
+    }
+
+    & > .rex-form-group {
+
+        margin-bottom: 0;
+
+        > dd {
+            padding-left: 0;
+        }
+    }
+
+    .table tr:not(.collapse):not(.collapsing) & {
+        padding-left: 0;
+    }
+}
+.rex-form-aligned,
+.btn-toolbar .rex-form-aligned {
+
+        @media (min-width: $grid-float-breakpoint) {
+            margin-left: floor($grid-gutter-width * 6 + 5px); // btn-toolbar is left moved (-5px), Offset the first child's margin
+        }
+        @media (min-width: $screen-lg-min) {
+            margin-left: floor($grid-gutter-width * 7 + 5px); // btn-toolbar is left moved (-5px), Offset the first child's margin
+        }
+        @media (min-width: $screen-xl-min) {
+            margin-left: floor($grid-gutter-width * 10 + 5px); // btn-toolbar is left moved (-5px), Offset the first child's margin
+        }
+
+        .table + .panel-footer & {
+            margin-left: 0;
+        }
+}
+
+input[type=range] {
+    @include input-type-range();
+}
+
+.input-group {
+    .bootstrap-select {
+        .btn {
+            border-color: $input-group-addon-border-color;
+        }
+    }
+}
+
+.rex-panel-options {
+    .form-group:last-child {
+        margin-bottom: 0;
+    }
+    .form-control,
+    .input-group .bootstrap-select .btn {
+        border-color: darken($color-a-light, 10%);
+    }
+    .input-group .form-control {
+        min-width: 160px;
+        width:100%;
+    }
+}
+
+.rex-select-style {
+    width: 100%;
+    overflow: hidden;
+    background: #fff url("data:image/png;base64,R0lGODlhDwAUAIABAAAAAP///yH5BAEAAAEALAAAAAAPABQAAAIXjI+py+0Po5wH2HsXzmw//lHiSJZmUAAAOw==") no-repeat 98% 50%;
+    border: 1px solid $input-border;
+
+    select {
+        width: 100%;
+        padding: ($padding-base-vertical + 1) 8px;
+        background: transparent;
+        background-image: none;
+        border: none;
+        box-shadow: none;
+        -webkit-appearance: none;
+        -moz-appearance:none;
+
+        .rex-form-group:not(.rex-form-group-vertical) > dd & {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        &[multiple],
+        &[multiple]:focus {
+            background-color: #fff;
+        }
+        &:focus {
+            background-color: transparent;
+            outline: none;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

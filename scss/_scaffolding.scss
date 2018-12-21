@@ -1,0 +1,126 @@
+html {
+    overflow-y: scroll;
+}
+@media(min-width: $grid-float-breakpoint) {
+    body, .rex-page {
+        height: 100%;
+    }
+}
+@media(max-width: $grid-float-breakpoint-max) {
+    html, body {
+        height: 100%;
+    }
+    .rex-page {
+        min-height: 100%;
+    }
+}
+.rex-breadcrumb {
+    //padding-top: 32px;
+    overflow: hidden;
+
+    .rex-page-header + & {
+        margin-top: -9px;
+    }
+}
+.breadcrumb {
+    border: 1px solid $color-a-light;
+}
+
+.rex-redaxo-logo {
+    path.rex-redaxo-logo-r,
+    path.rex-redaxo-logo-e,
+    path.rex-redaxo-logo-d,
+    path.rex-redaxo-logo-cms {
+        fill: #fff;
+
+        #rex-page-login & {
+            fill: $color-b;
+        }
+    }
+    path.rex-redaxo-logo-a,
+    path.rex-redaxo-logo-x,
+    path.rex-redaxo-logo-o,
+    path.rex-redaxo-logo-reg {
+        fill: $color-a-dark;
+
+        #rex-page-login & {
+            fill: #fff;
+        }
+    }
+}
+
+.rex-main-frame {
+    margin-left: floor(-$grid-gutter-width / 2);
+    margin-right: floor(-$grid-gutter-width / 2);
+    padding: floor($grid-gutter-width * 2) floor($grid-gutter-width / 2);
+    background-color: $color-a-contra;
+}
+@media(min-width: $grid-float-breakpoint) {
+    .rex-main-sidebar {
+        opacity: .5;
+        @include transition(opacity 0.2s);
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.rex-language {
+    margin-bottom: $line-height-computed;
+    @media(min-width: $grid-float-breakpoint) {
+        float: right;
+        margin-left: $grid-gutter-width;
+        padding-top: 2px;
+
+        .dropdown-menu {
+            left: auto;
+            right: 0
+        }
+    }
+}
+
+
+.rex-state-inprogress {
+    background-color: $navbar-inverse-bg;
+}
+.rex-state-live {
+    background-color: $navbar-default-bg;
+}
+
+@media(max-width: $grid-float-breakpoint-max) {
+    .rex-is-logged-in {
+        .rex-page {
+            position: relative;
+            z-index: 3;
+            background-color: $body-bg;
+            /* Force Hardware Acceleration */
+            @include translate3d(0, 0, 0);
+            @include backface-visibility(hidden);
+            @include transition-transform(0.3s);
+
+            &.rex-nav-main-is-visible {
+                @include translate(-260px, 0);
+            }
+        }
+    }
+}
+
+.rex-is-popup {
+    .rex-page-header {
+        padding-top: $grid-gutter-width;
+
+        .page-header {
+            position: absolute;
+            top: 0;
+            right: $grid-gutter-width / 2;
+            z-index: 1020;
+            margin: 0;
+            padding: 0;
+            > h1 {
+                margin: 0;
+                color: #fff;
+                line-height: $top-popup-navbar-height;
+            }
+        }
+    }
+}
