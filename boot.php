@@ -1,8 +1,9 @@
 <?php
 
-$mypage = 'redaxo';
+$mypage = 'be_theme';
 
 if (rex::isBackend()) {
+    // Respect the Plugin styles if compile the addon
     rex_extension::register('BE_STYLE_SCSS_FILES', function (rex_extension_point $ep) use ($mypage) {
         $subject = $ep->getSubject();
         $file = rex_plugin::get('be_style', $mypage)->getPath('scss/default.scss');
@@ -10,6 +11,7 @@ if (rex::isBackend()) {
         return $subject;
     }, rex_extension::EARLY);
 
+    // If compiler run
     if (rex::getUser() && $this->getProperty('compile')) {
         rex_addon::get('be_style')->setProperty('compile', true);
 
@@ -20,7 +22,6 @@ if (rex::isBackend()) {
 
             // Compile in backend assets dir
             $compiler->setCssFile($this->getPath('assets/css/styles.css'));
-
             $compiler->compile();
 
             // Compiled file to copy in frontend assets dir
@@ -28,6 +29,7 @@ if (rex::isBackend()) {
         });
     }
 
+    // load assets
     rex_view::addCssFile($this->getAssetsUrl('css/styles.css'));
     rex_view::addJsFile($this->getAssetsUrl('javascripts/redaxo.js'));
 
@@ -35,6 +37,9 @@ if (rex::isBackend()) {
     rex_view::addJsFile($this->getAssetsUrl('libs/tippy.all.min.js'));
     rex_view::addJsFile($this->getAssetsUrl('javascripts/be_theme.js'));
 
+    /**
+     * Modify Header
+     */
     rex_extension::register('PAGE_HEADER', function (rex_extension_point $ep) {
         $icons = [];
         foreach (['57', '60', '72', '76', '114', '120', '144', '152'] as $size) {
