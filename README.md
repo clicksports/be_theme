@@ -6,7 +6,7 @@ Ein Plugin für das Redaxo AddOn `be_style`
 
 ## Installation
 
-In den Plguins Ordner von `be_style` das `be_theme` klonen..
+In den Plugins Ordner von `be_style` das `be_theme` klonen..
 
 ```sh
 cd redaxo/src/addons/be_style/plugins
