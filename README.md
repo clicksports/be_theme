@@ -6,15 +6,11 @@ Ein Plugin für das Redaxo AddOn `be_style`
 
 ## Installation
 
-In den Plguins Ordner von `be_style`
+In den Plugins Ordner von `be_style` das `be_theme` klonen..
 
 ```sh
 cd redaxo/src/addons/be_style/plugins
-```
-
-`be_theme` klonen..
-```sh
-git clone ...
+git clone https://github.com/clicksports/be_theme.git
 ```
 
 Falls notwendig, das Plugin noch auf den Server hochladen und das Plugin `be_theme` installieren und anschließend das Plugin `redaxo` deaktivieren. 
